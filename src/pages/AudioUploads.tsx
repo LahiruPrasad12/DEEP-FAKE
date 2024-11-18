@@ -34,6 +34,7 @@ const AudioPrediction = () => {
   const [todayPredictions, setTodayPredictions] = useState<Prediction[] | null>(null);
 
   const userData = localStorage.getItem("user");
+  const user = JSON.parse(userData)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -162,16 +163,29 @@ const AudioPrediction = () => {
             </div>
           </CardContent>
           {predictionLabel && (
-           <CardFooter className="flex justify-center">
-           <div className="flex flex-col items-center text-center">
-             <h2 className="text-2xl font-bold text-green-600 bg-green-100 px-4 py-2 rounded-lg shadow-lg">
-               {getPrediction()}
-             </h2>
-             <Button className="mt-4" onClick={handleDownloadPDF}>
-               Download Report
-             </Button>
-           </div>
-         </CardFooter>
+            <CardFooter className="flex justify-center">
+              <div className="flex flex-col items-center text-center">
+                <h2 className="text-2xl font-bold text-green-600 bg-green-100 px-4 py-2 rounded-lg shadow-lg">
+                  {getPrediction()}
+                </h2>
+                {
+                  !user?.access_token?.is_pro ? (
+                    <Alert variant="destructive">
+                      {/* <AlertTitle>Error</AlertTitle> */}
+                      <AlertDescription>Upgrade to Pro for the download report.</AlertDescription>
+                      <Button onClick={() => navigate('/home/promo')} className="mt-4">
+                        Get Pro
+                      </Button>
+                    </Alert>
+                  ) : (
+                    <Button className="mt-4" onClick={handleDownloadPDF}>
+                      Download Report
+                    </Button>
+                  )
+                }
+
+              </div>
+            </CardFooter>
           )}
         </Card>
       </main>
