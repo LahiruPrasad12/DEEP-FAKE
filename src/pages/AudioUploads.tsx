@@ -65,7 +65,7 @@ const AudioPrediction = () => {
     fetchPredictions();
   }, [predictionLabel]);
 
-  
+
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -81,7 +81,7 @@ const AudioPrediction = () => {
 
     // await fetchPredictions()
 
-    if (todayPredictions?.length>4) {
+    if (todayPredictions?.length > 4) {
       alert("Please upgrade your account to pro");
       return;
     }
@@ -112,12 +112,12 @@ const AudioPrediction = () => {
 
   };
 
-  const getPrediction =()=>{
-    if(predictionLabel === 'Original'){
+  const getPrediction = () => {
+    if (predictionLabel === 'Original') {
       return 'You Uploaded Voice is Original'
-    }else if (predictionLabel === 'AudioDeepFake'){
+    } else if (predictionLabel === 'AudioDeepFake') {
       return 'You Uploaded Voice is Audio Deep Fake'
-    }else{
+    } else {
       'You Uploaded Voice is Transcript Deep Fake'
     }
     return predictionLabel
@@ -134,7 +134,7 @@ const AudioPrediction = () => {
                 <Alert variant="destructive">
                   {/* <AlertTitle>Error</AlertTitle> */}
                   <AlertDescription>You're almost at your upload limit! Upgrade to Pro for unlimited audio uploads and unlock more features.</AlertDescription>
-                  <Button onClick={()=>navigate('/home/promo')} className="mt-4">
+                  <Button onClick={() => navigate('/home/promo')} className="mt-4">
                     Get Pro
                   </Button>
                 </Alert>
@@ -149,7 +149,7 @@ const AudioPrediction = () => {
           <CardContent>
             <div className="flex flex-col items-center gap-4">
               <Input type="file" accept="audio/*" onChange={handleFileChange} className="mb-4" />
-              <Button onClick={handleSubmit} disabled={!selectedFile || todayPredictions?.length>4}>
+              <Button onClick={handleSubmit} disabled={!selectedFile || todayPredictions?.length > 4}>
                 {is_loading ? 'Uploading...' : 'Upload and Predict'}
               </Button>
             </div>
@@ -158,7 +158,7 @@ const AudioPrediction = () => {
             <CardFooter>
               <div className="flex flex-col items-center">
                 <h2 className="text-2xl items-center font-bold text-green-600 bg-green-100 px-4 py-2 rounded-lg shadow-lg">
-                 {getPrediction()}
+                  {getPrediction()}
                 </h2>
               </div>
             </CardFooter>

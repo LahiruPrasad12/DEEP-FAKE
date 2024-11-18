@@ -83,19 +83,13 @@ const Layout = () => {
                 <TicketPercent className="h-4 w-4" />
                 Get Pro
               </Link>
-
-              {
-                user?.access_token.is_pro && (
-                  <Link
-                    to="api-key"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-                  >
-                    <Key className="h-4 w-4" />
-                    Get API Key
-                  </Link>
-                )
-              }
-
+              <Link
+                to="api-key"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Key className="h-4 w-4" />
+                Get API Key
+              </Link>
 
             </nav>
           </div>

@@ -8,6 +8,7 @@ import GetPro from '../pages/GetPro';
 import Payment from '../pages/Payment';
 import History from '../pages/History';
 import MyDashboard from '../pages/MyDashboard';
+import ApiKey from '../pages/ApiKey';
 
 const AppRoutes = () => (
   <Router>
@@ -22,6 +23,7 @@ const AppRoutes = () => (
         <Route path="pay" element={<Payment />} />
         <Route path="history" element={<History />} />
         <Route path="my-dashboard" element={<MyDashboard />} />
+        <Route path="api-key" element={<ApiKey />} />
       </Route>
     </Routes>
   </Router>
